@@ -11,7 +11,7 @@ Ellen Hwang and Joseph Simonian
 3. run `make all` to execute all scripts and get all output
 
 ## File Structure
-
+```
 project
 │   .gitignore
 |   LICENSE
@@ -50,6 +50,7 @@ project
     │   README.md
     │   report.Rmd
     │   report.pdf
+```
 
 1. code: includes functions, scripts, and tests
 2. data: includes `Credit.csv` dataset used
