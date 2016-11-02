@@ -1,11 +1,11 @@
 ############################################################
 # EXPLORATORY DATA ANALYSIS (EDA)
 ############################################################
+# libraries and output adjustments
 library(ggplot2)
 options(warn = -1)
 
-#setwd("~/stat159_proj2/code/scripts")
-
+# import data
 credit <- read.csv('../../data/Credit.csv')
 credit <- credit[-1]
 
