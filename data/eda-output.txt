@@ -1,0 +1,63 @@
+[1] "Min, Quartiles, Median, Mean, and Max"
+     Income           Limit           Rating          Cards      
+ Min.   : 10.35   Min.   :  855   Min.   : 93.0   Min.   :1.000  
+ 1st Qu.: 21.01   1st Qu.: 3088   1st Qu.:247.2   1st Qu.:2.000  
+ Median : 33.12   Median : 4622   Median :344.0   Median :3.000  
+ Mean   : 45.22   Mean   : 4736   Mean   :354.9   Mean   :2.958  
+ 3rd Qu.: 57.47   3rd Qu.: 5873   3rd Qu.:437.2   3rd Qu.:4.000  
+ Max.   :186.63   Max.   :13913   Max.   :982.0   Max.   :9.000  
+      Age          Education        Gender    Student   Married  
+ Min.   :23.00   Min.   : 5.00    Male :193   No :360   No :155  
+ 1st Qu.:41.75   1st Qu.:11.00   Female:207   Yes: 40   Yes:245  
+ Median :56.00   Median :14.00                                   
+ Mean   :55.67   Mean   :13.45                                   
+ 3rd Qu.:70.00   3rd Qu.:16.00                                   
+ Max.   :98.00   Max.   :20.00                                   
+            Ethnicity      Balance       
+ African American: 99   Min.   :   0.00  
+ Asian           :102   1st Qu.:  68.75  
+ Caucasian       :199   Median : 459.50  
+                        Mean   : 520.01  
+                        3rd Qu.: 863.00  
+                        Max.   :1999.00  
+[1] "Mean of Each Numeric Column"
+    Income      Limit     Rating      Cards        Age  Education     Gender 
+  45.21889 4735.60000  354.94000    2.95750   55.66750   13.45000         NA 
+   Student    Married  Ethnicity    Balance 
+        NA         NA         NA  520.01500 
+[1] "Standard Deviationof Each Numeric Column"
+      Income        Limit       Rating        Cards          Age    Education 
+  35.2442732 2308.1988475  154.7241426    1.3712749   17.2498068    3.1252068 
+      Gender      Student      Married    Ethnicity      Balance 
+   0.5003194    0.3003757    0.4877895    0.8271702  459.7588774 
+[1] "Correlation Matrix"
+               Income       Limit      Rating       Cards         Age
+Income     1.00000000  0.79208834  0.79137763 -0.01827261 0.175338403
+Limit      0.79208834  1.00000000  0.99687974  0.01023133 0.100887922
+Rating     0.79137763  0.99687974  1.00000000  0.05323903 0.103164996
+Cards     -0.01827261  0.01023133  0.05323903  1.00000000 0.042948288
+Age        0.17533840  0.10088792  0.10316500  0.04294829 1.000000000
+Education -0.02769198 -0.02354853 -0.03013563 -0.05108422 0.003619285
+Balance    0.46365646  0.86169727  0.86362516  0.08645635 0.001835119
+             Education      Balance
+Income    -0.027691982  0.463656457
+Limit     -0.023548534  0.861697267
+Rating    -0.030135627  0.863625161
+Cards     -0.051084217  0.086456347
+Age        0.003619285  0.001835119
+Education  1.000000000 -0.008061576
+Balance   -0.008061576  1.000000000
+[1] "ANOVA"
+Call:
+   aov(formula = Balance ~ ., data = credit)
+
+Terms:
+                  Income    Limit   Rating    Cards      Age Education   Gender
+Sum of Squares  18131167 55337912   432836    63557    90221     15437     1444
+Deg. of Freedom        1        1        1        1        1         1        1
+                 Student  Married Ethnicity Residuals
+Sum of Squares   6461978     4545     14084   3786730
+Deg. of Freedom        1        1         2       388
+
+Residual standard error: 98.79076
+Estimated effects may be unbalanced
