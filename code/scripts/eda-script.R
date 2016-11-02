@@ -2,6 +2,7 @@
 # EXPLORATORY DATA ANALYSIS (EDA)
 ############################################################
 library(ggplot2)
+options(warn = -1)
 
 #setwd("~/stat159_proj2/code/scripts")
 
@@ -14,18 +15,24 @@ credit <- credit[-1]
 
 sink('eda-output.txt')
 # find min, quartiles, median, mean, and max
+paste('Min, Quartiles, Median, Mean, and Max')
 summary(credit)
 
 # mean of each numeric column
+paste('Mean of Each Numeric Column')
 sapply(credit, mean)
 
 # sd of each numeric column
+paste('Standard Deviationof Each Numeric Column')
 sapply(credit, sd)
 
 # correlation matrix
-cor(credit)
+paste('Correlation Matrix')
+credit_int <- credit[c(1:6,11)]
+cor(credit_int)
 
 # anova
+paste('ANOVA')
 aov(Balance ~ ., data = credit)
 
 sink(NULL)
@@ -63,35 +70,35 @@ box_marr <- ggplot(credit, aes(factor(Married),y = Balance)) + geom_boxplot()+
 # **************************************************
 # Saving plots 
 # **************************************************
-png('images/histogram-credit-income.png')
+png('../../images/histogram-credit-income.png')
 hist_income
 dev.off()
 
-png('images/histogram-credit-limit.png')
+png('../../images/histogram-credit-limit.png')
 hist_limit
 dev.off()
 
-png('images/histogram-credit-rating.png')
+png('../../images/histogram-credit-rating.png')
 hist_rating
 dev.off()
 
-png('images/histogram-credit-age.png')
+png('../../images/histogram-credit-age.png')
 hist_age
 dev.off()
 
-png('images/boxplot-balance-gender.png')
+png('../../images/boxplot-balance-gender.png')
 box_gen
 dev.off()
 
-png('images/boxplot-balance-ethnicity.png')
+png('../../images/boxplot-balance-ethnicity.png')
 box_ethn
 dev.off()
 
-png('images/boxplot-balance-student.png')
+png('../../images/boxplot-balance-student.png')
 box_stud
 dev.off()
 
-png('images/boxplot-balance-married.png')
+png('../../images/boxplot-balance-married.png')
 box_marr
 dev.off()
 
