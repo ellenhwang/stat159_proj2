@@ -15,5 +15,8 @@ data: data/Credit.csv
 data/Credit.csv:
 	curl $(url) > $@
 
+eda:
+	cd code/scripts; Rscript eda-script.R; mv eda-output.txt ../../data
+
 clean:
 	rm $(report)/$(report).$(rep_filetype)
