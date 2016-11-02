@@ -19,8 +19,15 @@ data/Credit.csv:
 
 preprocess:
 	Rscript code/$(scripts)/$@_script.R
+
 eda:
 	cd code/scripts; Rscript eda-script.R; mv eda-output.txt ../../data
+
+ols: 
+	cd code/scripts; Rscript ols-regression-script.R
+
+pls:
+	cd code/scripts; Rscript pls-regression-script.R
 
 session:
 	cd code/scripts; Rscript session-info-script.R; mv session-info.txt ../../
