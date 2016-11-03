@@ -6,14 +6,14 @@ library(ggplot2)
 options(warn = -1)
 
 # import data
-credit <- read.csv('../../data/Credit.csv')
+credit <- read.csv('data/Credit.csv')
 credit <- credit[-1]
 
 # **************************************************
 # Summary Statistics
 # **************************************************
 
-sink('eda-output.txt')
+sink('data/eda-output.txt')
 # find min, quartiles, median, mean, and max
 paste('Min, Quartiles, Median, Mean, and Max')
 summary(credit)
@@ -23,7 +23,7 @@ paste('Mean of Each Numeric Column')
 sapply(credit, mean)
 
 # sd of each numeric column
-paste('Standard Deviationof Each Numeric Column')
+paste('Standard Deviation of Each Numeric Column')
 sapply(credit, sd)
 
 # correlation matrix
@@ -38,19 +38,19 @@ aov(Balance ~ ., data = credit)
 sink(NULL)
 
 # **************************************************
-# Histograms 
+# Histograms
 # **************************************************
 hist_income <- ggplot(credit, aes(x = Income)) + geom_histogram(aes(y = ..density.., fill = ..density..), binwidth = 10) +
-  geom_density() + ggtitle("Histogram of Income") 
+  geom_density() + ggtitle("Histogram of Income")
 
 hist_limit <- ggplot(credit, aes(x = Limit)) + geom_histogram(aes(y = ..density.., fill = ..density..), binwidth = 1000) +
-  geom_density() + ggtitle("Histogram of Limit") 
+  geom_density() + ggtitle("Histogram of Limit")
 
 hist_rating <- ggplot(credit, aes(x = Rating)) + geom_histogram(aes(y = ..density.., fill = ..density..), binwidth = 20) +
-  geom_density() + ggtitle("Histogram of Rating") 
+  geom_density() + ggtitle("Histogram of Rating")
 
 hist_age <- ggplot(credit, aes(x = Age)) + geom_histogram(aes(y = ..density.., fill = ..density..), binwidth = 10) +
-  geom_density() + ggtitle("Histogram of Age") 
+  geom_density() + ggtitle("Histogram of Age")
 
 # **************************************************
 # Boxplots
@@ -68,37 +68,36 @@ box_marr <- ggplot(credit, aes(factor(Married),y = Balance)) + geom_boxplot()+
   ggtitle("Boxplot: Balance vs Married")
 
 # **************************************************
-# Saving plots 
+# Saving plots
 # **************************************************
-png('../../images/histogram-credit-income.png')
+png('images/histogram-credit-income.png')
 hist_income
 dev.off()
 
-png('../../images/histogram-credit-limit.png')
+png('images/histogram-credit-limit.png')
 hist_limit
 dev.off()
 
-png('../../images/histogram-credit-rating.png')
+png('images/histogram-credit-rating.png')
 hist_rating
 dev.off()
 
-png('../../images/histogram-credit-age.png')
+png('images/histogram-credit-age.png')
 hist_age
 dev.off()
 
-png('../../images/boxplot-balance-gender.png')
+png('images/boxplot-balance-gender.png')
 box_gen
 dev.off()
 
-png('../../images/boxplot-balance-ethnicity.png')
+png('images/boxplot-balance-ethnicity.png')
 box_ethn
 dev.off()
 
-png('../../images/boxplot-balance-student.png')
+png('images/boxplot-balance-student.png')
 box_stud
 dev.off()
 
-png('../../images/boxplot-balance-married.png')
+png('images/boxplot-balance-married.png')
 box_marr
 dev.off()
-

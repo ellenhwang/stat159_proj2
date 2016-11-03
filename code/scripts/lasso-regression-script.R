@@ -6,9 +6,9 @@ library('glmnet')
 library('methods')
 
 # import data
-credit <- read.csv('../../data/Processed_Credit.csv')
-train <- read.csv('../../data/train.csv')
-test <- read.csv('../../data/test.csv')
+credit <- read.csv('data/Processed_Credit.csv')
+train <- read.csv('data/train.csv')
+test <- read.csv('data/test.csv')
 
 credit <- as.matrix(credit[,-1])
 train <- as.matrix(train[,-1])
@@ -16,7 +16,7 @@ test <- as.matrix(test[,-1])
 # ************************************************
 # lasso
 # ************************************************
-sink('lasso-output.txt')
+sink('data/lasso-output.txt')
 
 grid <- 10^seq(10, -2, length = 100)
 
@@ -26,11 +26,11 @@ lasso.mod = glmnet(train, train[, "Balance"], alpha = 1, lambda = grid, intercep
 
 # Cross Validation Lasso Model on Train
 set.seed(40)
-cv.lasso.train <- cv.glmnet(train, as.matrix(train[, "Balance"]),  intercept = FALSE, 
+cv.lasso.train <- cv.glmnet(train, as.matrix(train[, "Balance"]),  intercept = FALSE,
                        standardize = FALSE, alpha = 1,lambda = grid)
 
 # Plot Cross Validation Errors
-png('../../images/lasso-cross-valid-errors.png')
+png('images/lasso-cross-valid-errors.png')
 plot(cv.lasso.train)
 dev.off()
 
@@ -46,8 +46,8 @@ lasso.pred
 lasso.mse <- mean((lasso.pred - test[,"Balance"])^2)
 lasso.mse
 
-# fit lasso to full dataset 
-lasso.model.full <- glmnet(credit[,-12], as.matrix(credit[, "Balance"]),  intercept = FALSE, 
+# fit lasso to full dataset
+lasso.model.full <- glmnet(credit[,-12], as.matrix(credit[, "Balance"]),  intercept = FALSE,
                 standardize = FALSE, alpha = 1,lambda = grid)
 lasso.coef = predict(lasso.model.full, type = "coefficients", s = bestlam)[1:11,]
 lasso.coef
@@ -59,4 +59,4 @@ lasso.coef.official
 sink(NULL)
 
 save(bestlam, lasso.model.full, lasso.coef, lasso.coef.official, lasso.mse,
-     file = "../../data/lasso-objects.RData")
+     file = "data/lasso-objects.RData")

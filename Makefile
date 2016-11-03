@@ -1,12 +1,12 @@
 # Section names
 code = code
-scripts = scripts
+scripts = code/scripts
 report = report
 
 # in case the URL of the data changes - only one name to change
 url = http://www-bcf.usc.edu/~gareth/ISL/Credit.csv
 
-.PHONY: all data tests eda ols ridge lasso pcr plsr regressions packages report slides session preprocess clean
+.PHONY: all data tests eda ols ridge lasso pcr plsr regressions report slides session preprocess clean
 
 MD = $(wildcard report/sections/*.Rmd)
 
@@ -18,22 +18,22 @@ data/Credit.csv:
 	curl $(url) > $@
 
 preprocess:
-	Rscript code/$(scripts)/$@_script.R
+	Rscript $(scripts)/$@-script.R
 
 eda:
-	cd code/scripts; Rscript eda-script.R; mv eda-output.txt ../../data
+	Rscript $(scripts)/$@-script.R
 
-ols: 
-	cd code/scripts; Rscript ols-regression-script.R
+ols:
+	Rscript $(scripts)/$@-$(regscript)
 
 pls:
-	cd code/scripts; Rscript pls-regression-script.R; mv pls-output.txt ../../data
+	Rscript $(scripts)/$@-regression-script.R
 
 lasso:
-	cd code/scripts; Rscript lasso-regression-script.R; mv lasso-output.txt ../../data
- 
+	Rscript $(scripts)/$@-regression-script.R
+
 session:
-	cd code/scripts; Rscript session-info-script.R; mv session-info.txt ../../
+	Rscript $(scripts)/$@-info-script.R
 
 report: $(MD)
 	cat $(MD) > report/report.Rmd
