@@ -32,6 +32,9 @@ pls:
 lasso:
 	Rscript $(scripts)/$@-regression-script.R
 
+ridge:
+	Rscript $(scripts)/$@-regression-script.R
+
 session:
 	Rscript $(scripts)/$@-info-script.R
 
