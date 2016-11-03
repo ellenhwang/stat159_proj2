@@ -25,7 +25,7 @@
   45.21889 4735.60000  354.94000    2.95750   55.66750   13.45000         NA 
    Student    Married  Ethnicity    Balance 
         NA         NA         NA  520.01500 
-[1] "Standard Deviationof Each Numeric Column"
+[1] "Standard Deviation of Each Numeric Column"
       Income        Limit       Rating        Cards          Age    Education 
   35.2442732 2308.1988475  154.7241426    1.3712749   17.2498068    3.1252068 
       Gender      Student      Married    Ethnicity      Balance 

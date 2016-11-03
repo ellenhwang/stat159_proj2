@@ -135,3 +135,4 @@ TRAINING: % variance explained
          1 comps  2 comps  3 comps
 X        99.8492    99.94    99.94
 Balance   0.0783    69.70    86.63
+NULL
