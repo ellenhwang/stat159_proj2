@@ -29,7 +29,7 @@ pls.best.mod.value <- min(pls.fit.train$validation$PRESS)
 pls.best.mod.value
 
 #Plot Cross Validation Errors
-png('images/pls-cross-valid-errors.png')
+png('../../images/pls-cross-valid-errors.png')
 validationplot(pls.fit.train, val.type = "MSEP")
 dev.off()
 
