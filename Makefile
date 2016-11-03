@@ -29,6 +29,9 @@ ols:
 pls:
 	cd code/scripts; Rscript pls-regression-script.R; mv pls-output.txt ../../data
 
+lasso:
+	cd code/scripts; Rscript lasso-regression-script.R; mv lasso-output.txt ../../data
+ 
 session:
 	cd code/scripts; Rscript session-info-script.R; mv session-info.txt ../../
 
