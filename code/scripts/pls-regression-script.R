@@ -5,11 +5,9 @@
 library(pls)
 
 # import data
-credit <- read.csv('data/Processed_Credit.csv')
-train <- read.csv('data/train.csv')
-test <- read.csv('data/test.csv')
-
-y <- credit$Balance
+credit <- read.csv('../../data/Processed_Credit.csv')
+train <- read.csv('../../data/train.csv')
+test <- read.csv('../../data/test.csv')
 
 # ************************************************
 # pls
@@ -24,7 +22,7 @@ pls.fit.train <- plsr(Balance ~ ., data = df_train, validation = "CV")
 summary(pls.fit.train)
 
 # Best Model Value and Component
-best_components <- which.min(pls.fit.train$validation$PRESS) # 5 components
+best_components <- which.min(pls.fit.train$validation$PRESS)
 pls.best.mod.value <- min(pls.fit.train$validation$PRESS) 
 pls.best.mod.value
 
@@ -38,7 +36,7 @@ pls.pred <- predict(pls.fit.train, df_test, ncomp=best_components)
 pls.pred
 
 # Mean Squared Error
-pls.mse <- mean((pls.pred - test[,"Balance"]))^2
+pls.mse <- mean((pls.pred - test[,"Balance"])^2)
 pls.mse
 
 # fit PLS to full dataset using best_components

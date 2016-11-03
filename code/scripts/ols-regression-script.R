@@ -3,11 +3,13 @@
 ##################################################
 
 # Import data
-credit <- read.csv('../../data/Credit.csv')
+credit <- read.csv('data/Credit.csv')
 credit <- credit[-1]
 
 # ************************************************
-# 
+# ols
 # ************************************************
-mult_reg_balance <- lm(Balance ~ ., data = credit)
-summary_mult_reg <- summary(mult_reg_balance)
+ols.fit <- lm(Balance ~ ., data = credit)
+ols.summary <- summary(mult_reg_balance)
+
+save(ols.fit, ols.summary, 'data/ols-regression.RData')

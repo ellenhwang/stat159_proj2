@@ -3,11 +3,12 @@
 # ################################################
 # libraries
 library('glmnet')
+library('methods')
 
 # import data
-credit <- read.csv('data/Processed_Credit.csv')
-train <- read.csv('data/train.csv')
-test <- read.csv('data/test.csv')
+credit <- read.csv('../../data/Processed_Credit.csv')
+train <- read.csv('../../data/train.csv')
+test <- read.csv('../../data/test.csv')
 
 credit <- as.matrix(credit[,-1])
 train <- as.matrix(train[,-1])
@@ -29,7 +30,7 @@ cv.lasso.train <- cv.glmnet(train, as.matrix(train[, "Balance"]),  intercept = F
                        standardize = FALSE, alpha = 1,lambda = grid)
 
 # Plot Cross Validation Errors
-png('images/lasso-cross-valid-errors.png')
+png('../../images/lasso-cross-valid-errors.png')
 plot(cv.lasso.train)
 dev.off()
 
@@ -58,4 +59,4 @@ lasso.coef.official
 sink(NULL)
 
 save(bestlam, lasso.model.full, lasso.coef, lasso.coef.official, lasso.mse,
-     "data/model-objects.RData")
+     file = "../../data/model-objects.RData")
