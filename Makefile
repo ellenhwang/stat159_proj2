@@ -29,11 +29,15 @@ ols:
 pls:
 	Rscript $(scripts)/$@-regression-script.R
 
+plsr:
+
 lasso:
 	Rscript $(scripts)/$@-regression-script.R
 
 ridge:
 	Rscript $(scripts)/$@-regression-script.R
+
+regressions: ols ridge lasso pcr plsr
 
 session:
 	Rscript $(scripts)/$@-info-script.R
