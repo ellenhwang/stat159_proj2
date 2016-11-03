@@ -24,7 +24,7 @@ eda:
 	Rscript $(scripts)/$@-script.R
 
 ols:
-	Rscript $(scripts)/$@-$(regscript)
+	Rscript $(scripts)/$@-regression-script.R
 
 pls:
 	Rscript $(scripts)/$@-regression-script.R
