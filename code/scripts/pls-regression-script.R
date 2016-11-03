@@ -41,6 +41,10 @@ pls.mse
 
 # fit PLS to full dataset using best_components
 pls.fit.full <- plsr(Balance~., data = credit, ncomp = best_components)
-summary(pls.fit.full)
+summ.pls.full <- summary(pls.fit.full)
+summ.pls.full
 
 sink(NULL)
+
+save(pls.best.mod.value, pls.pred, pls.mse, summ.pls.full,
+     file = "../../data/pls-objects.RData")

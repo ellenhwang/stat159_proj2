@@ -59,4 +59,4 @@ lasso.coef.official
 sink(NULL)
 
 save(bestlam, lasso.model.full, lasso.coef, lasso.coef.official, lasso.mse,
-     file = "../../data/model-objects.RData")
+     file = "../../data/lasso-objects.RData")
