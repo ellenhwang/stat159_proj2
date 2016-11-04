@@ -6,7 +6,7 @@ report = report
 # in case the URL of the data changes - only one name to change
 url = http://www-bcf.usc.edu/~gareth/ISL/Credit.csv
 
-.PHONY: all data tests eda ols ridge lasso pcr plsr regressions report slides session preprocess clean
+.PHONY: all data tests eda ols ridge lasso pcr pls regressions report slides session preprocess clean
 
 MD = $(wildcard report/sections/*.Rmd)
 
@@ -29,7 +29,8 @@ ols:
 pls:
 	Rscript $(scripts)/$@-regression-script.R
 
-plsr:
+pcr:
+	Rscript $(scripts)/$@-regression-script.R
 
 lasso:
 	Rscript $(scripts)/$@-regression-script.R
@@ -37,7 +38,7 @@ lasso:
 ridge:
 	Rscript $(scripts)/$@-regression-script.R
 
-regressions: ols ridge lasso pcr plsr
+regressions: ols ridge lasso pcr pls
 
 session:
 	Rscript $(scripts)/$@-info-script.R
