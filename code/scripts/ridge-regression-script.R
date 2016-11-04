@@ -18,13 +18,13 @@ test <- as.matrix(test[,-1])
 # ************************************************
 sink('data/ridge-output.txt')
 
-grid <- 10^seq(-20, -2, length = 100)
+grid <- 10^seq(-20, 10, length = 100)
 
 # basic model
 ridge.mod = glmnet(train, train[, "Balance"], alpha = 0, lambda = grid, intercept = FALSE, standardize = FALSE)
 
 # Cross Validation Ridge Model on Train
-set.seed(40)
+set.seed(50)
 cv.ridge.train <- cv.glmnet(train, as.matrix(train[, "Balance"]),  intercept = FALSE, standardize = FALSE, alpha = 0, lambda = grid)
 
 # Plot Cross Validation Errors

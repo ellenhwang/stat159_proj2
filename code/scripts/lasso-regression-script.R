@@ -18,7 +18,7 @@ test <- as.matrix(test[,-1])
 # ************************************************
 sink('data/lasso-output.txt')
 
-grid <- 10^seq(-20, -2, length = 100)
+grid <- 10^seq(-20, 10, length = 100)
 
 # basic model
 lasso.mod = glmnet(train, train[, "Balance"], alpha = 1, lambda = grid, intercept = FALSE,
