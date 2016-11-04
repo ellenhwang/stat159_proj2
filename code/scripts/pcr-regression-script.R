@@ -12,7 +12,7 @@ test <- read.csv('data/test.csv')
 # ************************************************
 # pcr
 # ************************************************
-sink('data/pct-output.txt')
+sink('data/pcr-output.txt')
 set.seed(60)
 df_train <- as.data.frame(train)
 df_test <- as.data.frame(test)
