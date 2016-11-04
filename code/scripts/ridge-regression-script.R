@@ -18,7 +18,7 @@ test <- as.matrix(test[,-1])
 # ************************************************
 sink('data/ridge-output.txt')
 
-grid <- 10^seq(10, -2, length = 100)
+grid <- 10^seq(-20, -2, length = 100)
 
 # basic model
 ridge.mod = glmnet(train, train[, "Balance"], alpha = 0, lambda = grid, intercept = FALSE, standardize = FALSE)

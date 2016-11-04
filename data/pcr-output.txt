@@ -1,4 +1,4 @@
-Data: 	X dimension: 300 11
+Data: 	X dimension: 300 11 
 	Y dimension: 300 1
 Fit method: svdpc
 Number of components considered: 11
@@ -20,8 +20,8 @@ Balance   0.004399    72.70    74.39    76.66    79.10    80.97    82.42
 X          99.99   100.00    100.00    100.00
 Balance    82.57    82.69     82.69     82.76
 [1] 56.89802
-null device
-          1
+null device 
+          1 
 , , 9 comps
 
          Balance
@@ -127,7 +127,7 @@ null device
 100 -0.284658865
 
 [1] 0.1691158
-Data: 	X dimension: 400 12
+Data: 	X dimension: 400 12 
 	Y dimension: 400 1
 Fit method: svdpc
 Number of components considered: 9
