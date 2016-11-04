@@ -1,0 +1,9 @@
+# Methods
+
+## Lasso Regression
+
+With lasso regression, we first performed a preliminary model using `glmnet()` on the training dataset. For lasso, you set alpha to 1. Then, we cross validate the msso model on the train using the function `cv.glmnet()`. This helps pick out the best lambda to predict on the test set. Lastly, we fit the model to the full dataset and predict using the best lambda, helping us find the best coefficient values for the model. 
+
+## Partial Least Squares Regression
+
+With PLS regression, you use the  `plsr()` function modelling  *Balance* all other variables and setting validation to "CV". To find teh best number of components, you find the minimum of the validation PRESS features. This best component number is used to predict on the test dataset. Ultimately, you use perform `plsr()` on the full dataset using the best number of components. The summary of the model gives you 
