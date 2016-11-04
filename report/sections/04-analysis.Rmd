@@ -1,0 +1,31 @@
+# Analysis
+
+```{r}
+load('data/lasso-objects.RData')
+load('data/pls-objects.RData')
+```
+
+## Lasso Regression
+
+When we perform cross validation and compute the associated test error we find that the MSE is qite low at `r lasso.mse`. There are also quite a few coefficients that are zero. 
+
+```{r}
+lasso.coef
+```
+
+So all in all, we find that exactly 7 predictors are relevant in the regression. 
+
+```{r}
+lasso.coef.official
+```
+
+
+## Partial Least Squares Regression
+
+Looking at the pls output summary, we see that the cross-validation error occurs when M = `r pls.best.mod.value` are used. The corresponding test set MSE = `r pls.mse`. Finally, we perform PLS using the full data set using M = `r pls.best.mod.value` which is the number found in cross-validation. Looking at the summary of this model:
+
+```{r}
+summary(pls.fit.full)
+```
+
+We see that the `r pls.best.mod.value` component PLS fit explains 86.63% of the variance. 
