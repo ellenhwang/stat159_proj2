@@ -22,18 +22,31 @@ project
 └───data
 │   │   README.md
 │   │   Credit.csv
+│   │   Processed_Credit.csv
+│   │   test.csv
+│   │   train.csv
 │   │   eda-output.txt                  # produced by eda-script.R
+│   │   lasso-objects.RData
+│   │   lasso-output.txt
+│   │   ols-regression.RData
+│   │   pcr-objects.RData
+│   │   pcr-output.txt
+│   │   pls-objects.RData
+│   │   pls-output.txt
+│   │   ridge-objects.RData
+│   │   ridge-output.txt
 │
 └───code
 │   │   README.md
 │   │   
 │   └───scripts
 │   │   │   eda-script.R
-│   │   │   ols-script.R
-│   │   │   ridge-script.R
-│   │   │   lasso-script.R
-│   │   │   pcr-script.R
-│   │   │   plsr-script.R
+│   │   │   ols-regression-script.R
+│   │   │   ridge-regression-script.R
+│   │   │   lasso-regression-script.R
+│   │   │   pcr-regression-script.R
+│   │   │   pls-regression-script.R
+|   |   |   preprocess-script.R
 │   │   │   session-info-script.R
 │   │
 │   └───functions
@@ -44,7 +57,18 @@ project
 │
 └───images
 │   │   README.md
-│   │   histogram-sales.png            # produced by eda-script.R
+│   │   boxplot-balance-ethnicity.png
+│   │   boxplot-balance-gender.png
+│   │   boxplot-balance-married.png
+│   │   boxplot-balance-student.png
+│   │   histogram-credit-age.png
+│   │   histogram-credit-income.png
+│   │   histogram-credit-limit.png
+│   │   histogram-credit-rating.png
+│   │   lasso-cross-valid-errors.png
+│   │   pcr-cross-valid-errors.png
+│   │   pls-cross-valid-errors.png
+│   │   ridge-cross-valid-errors.png
 │
 └───report
     │   README.md
