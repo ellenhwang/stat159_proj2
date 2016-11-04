@@ -5,14 +5,14 @@
 library(pls)
 
 # import data
-credit <- read.csv('../../data/Processed_Credit.csv')
-train <- read.csv('../../data/train.csv')
-test <- read.csv('../../data/test.csv')
+credit <- read.csv('data/Processed_Credit.csv')
+train <- read.csv('data/train.csv')
+test <- read.csv('data/test.csv')
 
 # ************************************************
 # pls
 # ************************************************
-sink('pls-output.txt')
+sink('data/pls-output.txt')
 set.seed(2)
 df_train <- as.data.frame(train)
 df_test <- as.data.frame(test)
@@ -23,11 +23,11 @@ summary(pls.fit.train)
 
 # Best Model Value and Component
 best_components <- which.min(pls.fit.train$validation$PRESS)
-pls.best.mod.value <- min(pls.fit.train$validation$PRESS) 
+pls.best.mod.value <- min(pls.fit.train$validation$PRESS)
 pls.best.mod.value
 
 #Plot Cross Validation Errors
-png('../../images/pls-cross-valid-errors.png')
+png('images/pls-cross-valid-errors.png')
 validationplot(pls.fit.train, val.type = "MSEP")
 dev.off()
 
@@ -47,4 +47,4 @@ summ.pls.full
 sink(NULL)
 
 save(pls.best.mod.value, pls.pred, pls.mse, summ.pls.full,
-     file = "../../data/pls-objects.RData")
+     file = "data/pls-objects.RData")
