@@ -143,6 +143,8 @@ From these results, we can clearly see that our worst model was simple ordinary 
 
 # Conclusions
 
+## Conclusions
+
 Throughout this project, we have used a variety of linear models to predict credit card Balance based on owner data. We began by cleaning and preprocessing the data, and then performed a variety of different regression techniques on both the quantitative and (one-hot encoded) qualitative factors.
 
 We found that the best predictors of credit card debt were not demographic but individual - factors such as income, credit rating, and student status. Demographic factors tended to be less predictive, and were indeed ignored by our final model.
