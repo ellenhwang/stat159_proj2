@@ -22,7 +22,7 @@ pcr.fit.train <- pcr(Balance ~ ., data = df_train, validation = "CV")
 summary(pcr.fit.train)
 
 # Best Model Value and Component
-best_components <- which.min(pcr.fit.train$validation$PRESS)
+pcr.best.mod <- which.min(pcr.fit.train$validation$PRESS)
 pcr.best.mod.value <- min(pcr.fit.train$validation$PRESS)
 pcr.best.mod.value
 
@@ -32,7 +32,7 @@ validationplot(pcr.fit.train, val.type = "MSEP")
 dev.off()
 
 # Find lowest cross-validation error with best number of component (best_component)
-pcr.pred <- predict(pcr.fit.train, df_test, ncomp=best_components)
+pcr.pred <- predict(pcr.fit.train, df_test, ncomp=pcr.best.mod)
 pcr.pred
 
 # Mean Squared Error
@@ -40,11 +40,11 @@ pcr.mse <- mean((pcr.pred - test[,"Balance"])^2)
 pcr.mse
 
 # fit PCR to full dataset using best_components
-pcr.fit.full <- pcr(Balance~., data = credit, ncomp = best_components)
+pcr.fit.full <- pcr(Balance~., data = credit, ncomp = pcr.best.mod)
 summ.pcr.full <- summary(pcr.fit.full)
 summ.pcr.full
 
 sink(NULL)
 
-save(pcr.best.mod.value, pcr.pred, pcr.mse, summ.pcr.full,
+save(pcr.best.mod.value, pcr.best.mod, pcr.fit.full, pcr.pred, pcr.mse, summ.pcr.full,
      file = "data/pcr-objects.RData")

@@ -9,7 +9,7 @@ We then split the data into a training set (75\% of total data) and a testing se
 
 ## Lasso Regression
 
-With lasso regression, we first create a preliminary model using `glmnet()` on the training dataset, with $\alpha=1$ to represent the elasticnet mixing penalty used in lasso regression. We then cross validate our model on our training set using the function `cv.glmnet()`. During cross-validation, we perform a parameter search for lambda in the range $(10^{-20}, 10^{10})$, which was an expansion on the given grid from the project spec. Lastly, we fit a model to the full dataset and predict credit card balances using our best lambda found via CV.
+With lasso regression, we first create a preliminary model using `glmnet()` on the training dataset, with $\alpha=1$ to represent the elasticnet mixing penalty used in lasso regression. We then cross validate our model on our training set using the function `cv.glmnet()`. During cross-validation, we perform a parameter search for lambda in the range $(10^{-10}, 10^{10})$, which was an expansion on the given grid from the project spec. Lastly, we fit a model to the full dataset and predict credit card balances using our best lambda found via CV.
 
 ## Partial Least Squares Regression
 
@@ -17,7 +17,7 @@ With PLS regression, we use the  `plsr()` function modeling *Balance* as a funct
 
 ## Ridge Regression
 
-As with lasso regression, we create an initial model using `glmnet()` on the training dataset, with $\alpha=0$ to represent the elasticnet mixing penalty used in ridge regression. We then cross validate our model on our training set using the function `cv.glmnet()`. Once again, we perform a parameter search for lambda using the extended grid $(10^{-20}, 10^{10})$. Finally, we fit a model to the full dataset and predict credit card balances using our best lambda found via CV.
+As with lasso regression, we create an initial model using `glmnet()` on the training dataset, with $\alpha=0$ to represent the elasticnet mixing penalty used in ridge regression. We then cross validate our model on our training set using the function `cv.glmnet()`. Once again, we perform a parameter search for lambda using the extended grid $(10^{-10}, 10^{10})$. Finally, we fit a model to the full dataset and predict credit card balances using our best lambda found via CV.
 
 ## Principal Components Regression
 

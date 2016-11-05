@@ -18,11 +18,10 @@ test <- as.matrix(test[,-1])
 # ************************************************
 sink('data/lasso-output.txt')
 
-grid <- 10^seq(-20, 10, length = 100)
+grid <- 10^seq(-2, 10, length = 100)
 
 # basic model
-lasso.mod = glmnet(train, train[, "Balance"], alpha = 1, lambda = grid, intercept = FALSE,
-                   standardize = FALSE)
+lasso.mod = glmnet(train, train[, "Balance"], alpha = 1, lambda = grid, intercept = FALSE, standardize = FALSE)
 
 # Cross Validation Lasso Model on Train
 set.seed(40)
@@ -47,9 +46,8 @@ lasso.mse <- mean((lasso.pred - test[,"Balance"])^2)
 lasso.mse
 
 # fit lasso to full dataset
-lasso.model.full <- glmnet(credit[,-12], as.matrix(credit[, "Balance"]),  intercept = FALSE,
-                standardize = FALSE, alpha = 1,lambda = grid)
-lasso.coef = predict(lasso.model.full, type = "coefficients", s = bestlam)[1:11,]
+lasso.model.full <- glmnet(credit[,-12], as.matrix(credit[, "Balance"]),  intercept = FALSE, standardize = FALSE, alpha = 1,lambda = bestlam)
+lasso.coef = predict(lasso.model.full, type = "coefficients", s = bestlam)[0:12,]
 lasso.coef
 
 # remove coefficients of 0

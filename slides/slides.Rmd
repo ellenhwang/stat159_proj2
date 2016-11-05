@@ -1,20 +1,33 @@
 ---
-title: "Predictive Modeling Process"
+title: "Predictive Modeling Process Slides"
 author: "Joseph Simonian & Ellen Hwang"
 date: "November 4, 2016"
-output: pdf_document
+output: ioslides_presentation
 ---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 
 # Abstract
 
+## Abstract
+
 This report will be examining the applications of ridge regression (RR), lasso regression (LR), principal components regression (PCR), and partial least squares regression (PLSR). We will also be exploring how cross validation methods apply to each of these models and how cross validation strengthens our models.
 
+## Abstract - cont
+
 Our project will be using the Credit dataset, taken from the webpage for the text, *An Introduction to Statistical Learning*, to perform this simple linear regression. We analyze credit card debt based on a number of factors, such as income, gender, and credit limit, and create predictive models for credit card debt through a number of linear regression models. This report will include a description of the data, methods, analysis, and results for the regression models created.
+
 # Introduction
+
+## Introduction
 
 In this project, we will be exploring 4 types of regression models that strengthen model interpretability and prediction accuracy.
 
 Two of the regression models, ridge regression and lasso regression, are shrinkage methods which constrains the coefficient estimates to shrink the coefficient estimates towards zero. This helps reduce coefficient estimates reduce their variance. They differ in the application of shrinkage - lasso implements parameter shrinkage and variable selection, whereas ridge merely modifies parameter weights.
+
+## Introduction - cont
 
 The other two regression methods, principal components analysis and partial least squares, are dimension reduction methods. Dimension reduction methods essentially reduce the number of predictors under consideration to strengthen a model. They differ in that PLS works to maximize inter-class variance in its low-dimensional model, whereas PCA maximizes the variance of features themselves.
 
@@ -22,44 +35,11 @@ We will be applying these methods to the Credit Dataset to create various models
 
 # Data
 
+## Data
+
 For this model, we use the Credit.csv dataset available from the Introduction to Statistical Learning website [(download)](http://www-bcf.usc.edu/~gareth/ISL). This dataset is analyzed in Chapter 6 of the ISL book.
 
 This dataset contains "Balance", representing average credit card debt across a group of people, and 10 explanatory variables, of which 6 are quantitative and 4 categorical. The quantitative variables are: Income, Credit Limit, Credit Rating, No. of Cards, Age and Years of Education. The categorical variables are: Gender, Student Status, Marital Status and Ethnicity.
-
-We include basic exploratory data analysis below:
-
-\begin{center}
-\includegraphics[width=180pt]{../images/histogram-credit-age}
-\includegraphics[width=180pt]{../images/histogram-credit-income}
-
-\ \newline
-
-\includegraphics[width=180pt]{../images/histogram-credit-edu}
-\includegraphics[width=180pt]{../images/histogram-credit-rating}
-
-\ \newline
-
-\includegraphics[width=180pt]{../images/histogram-credit-ncards}
-\includegraphics[width=180pt]{../images/histogram-credit-limit}
-
-\ \newpage
-
-\includegraphics[width=160pt]{../images/boxplot-balance-ethnicity}
-\includegraphics[width=160pt]{../images/boxplot-balance-gender}
-
-\ \newline
-
-\includegraphics[width=160pt]{../images/boxplot-balance-married}
-\includegraphics[width=160pt]{../images/boxplot-balance-student}
-
-\ \newline
-
-We also include correlation plots and scatterplots between quantitative variables:
-
-\includegraphics[width=220pt]{../images/corr-matrix}
-\includegraphics[width=220pt]{../images/scatterplots}
-
-\end{center}
 
 # Methods
 
@@ -132,6 +112,8 @@ pls.fit.full$coefficients[,,pls.best.mod]
 ```
 
 # Results
+
+## Results
 
 We include a table of regression coefficients from all models below, along with a table of MSE for teach model:
 

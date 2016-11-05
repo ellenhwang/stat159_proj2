@@ -1,0 +1,28 @@
+
+# Results
+
+We include a table of regression coefficients from all models below, along with a table of MSE for teach model:
+
+```{r xtable, results = "asis", echo = FALSE, eval=TRUE, message=FALSE}
+library('xtable')
+ridgeCoefs = as.matrix(ridge.coef)
+lassoCoefs = as.matrix(lasso.coef)
+plsCoefs = as.matrix(pls.fit.full$coefficients[,,pls.best.mod])
+pcrCoefs = as.matrix(pcr.fit.full$coefficients[,,pcr.best.mod])
+coefMatrix = cbind(ridgeCoefs, lassoCoefs, plsCoefs, pcrCoefs)
+colnames(coefMatrix) = c("ridge", "lasso", "pls", "pcr")
+coefTable = xtable(coefMatrix, caption = "Model Coefficients")
+print(coefTable, type = "latex", caption.placement = "top", comment = FALSE)
+```
+
+```{r, results = "asis", eval=TRUE, echo=FALSE, message=FALSE}
+options(xtable.comment = FALSE)
+Model = c("OLS", "Ridge", "Lasso", "PCR", "PLS")
+ols.mse = sum(ols.fit$residuals^2)/length(ols.fit$residuals)
+TestMSE = c(ols.mse, ridge.mse, lasso.mse, pcr.mse, pls.mse)
+mseDF = cbind(Model, TestMSE)
+mseTable = xtable(mseDF, caption = "Test MSE by Model", digits = 5)
+print(mseTable, type = "latex", caption.placement = "top", comment = FALSE)
+```
+
+From these results, we can clearly see that our worst model was simple ordinary least squares, followed by PLS and PCR, followed by Ridge and Lasso regressions, with Lasso having the overall lowest MSE.

@@ -4,29 +4,43 @@
 ```{r}
 load('../data/lasso-objects.RData')
 load('../data/pls-objects.RData')
+load('../data/ridge-objects.RData')
+load('../data/pcr-objects.RData')
+load('../data/ols-regression.RData')
 ```
 
 ## Lasso Regression
 
-When we perform cross validation and compute the associated test error we find that the MSE is quite low at $`r lasso.mse`$. There are also quite a few coefficients that are zero.
-
-```{r}
-lasso.coef
-```
-
-So all in all, we find that exactly 7 predictors are relevant in the regression.
+When we perform cross validation and compute the associated test error we find that the MSE is quite low at $`r lasso.mse`$. There are also quite a few coefficients that are zero, as expected for lasso regression.
 
 ```{r}
 lasso.coef.official
 ```
 
+So all in all, we find that 6 predictors are relevant in lasso the regression: Income, Credit Limit, Credit Rating, Number of Credit Cards, Age, and Student Status - Education, Gender, Marital Status and Ethnicity all have coefficients of zero.
+
+## Ridge Regression
+
+When we perform cross validation and compute the associated test error we find that the MSE fairly low, though still higher than that found with lasso regression, at $`r ridge.mse`$. There are also quite a few coefficients that are zero, as expected for lasso regression.
+
+```{r}
+ridge.coef
+```
+
+Ridge regression generally has a lower probability than Lasso of setting unimportant components to 0, but as we see here, the coefficients Ethnicity, Marital Status and Education have all been set to 0. In addition, Gender has a very small coefficient, reinforcing our belief from Lasso regression that it is not predictive.
+
+## Principal Components Regression
+
+Looking at the pls output summary, we find our lowest cross-validation error occurs when we use `r pcr.best.mod` components are used. The corresponding test set MSE = `r pcr.mse`. We perform PCR using the full data set using M = `r pcr.best.mod` components (the number found in cross-validation), and obtain a model with the following coefficients:
+
+```{r}
+pcr.fit.full$coefficients[,,pcr.best.mod]
+```
 
 ## Partial Least Squares Regression
 
-Looking at the pls output summary, we see that the cross-validation error occurs when M = `r pls.best.mod.value` are used. The corresponding test set MSE = `r pls.mse`. Finally, we perform PLS using the full data set using M = `r pls.best.mod.value` which is the number found in cross-validation. Looking at the summary of this model:
+Looking at the pls output summary, we find our lowest cross-validation error occurs when we use `r pls.best.mod` components are used. The corresponding test set MSE = `r pls.mse`, very close to that found via PCR. We perform PLS using the full data set using M = `r pls.best.mod` components (the number found in cross-validation). We obtain a model with the following coefficients:
 
 ```{r}
-summary(pls.fit.full)
+pls.fit.full$coefficients[,,pls.best.mod]
 ```
-
-We see that the `r pls.best.mod.value` component PLS fit explains 86.63% of the variance.

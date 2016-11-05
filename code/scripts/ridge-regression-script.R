@@ -18,7 +18,7 @@ test <- as.matrix(test[,-1])
 # ************************************************
 sink('data/ridge-output.txt')
 
-grid <- 10^seq(-20, 10, length = 100)
+grid <- 10^seq(-2, 10, length = 100)
 
 # basic model
 ridge.mod = glmnet(train, train[, "Balance"], alpha = 0, lambda = grid, intercept = FALSE, standardize = FALSE)
@@ -47,14 +47,10 @@ ridge.mse
 # fit ridge to full dataset
 ridge.model.full <- glmnet(credit[,-12], as.matrix(credit[, "Balance"]),  intercept = FALSE,
                 standardize = FALSE, alpha = 1,lambda = grid)
-ridge.coef = predict(ridge.model.full, type = "coefficients", s = bestlam)[1:11,]
+ridge.coef = predict(ridge.model.full, type = "coefficients", s = bestlam)[0:12,]
 ridge.coef
-
-# remove coefficients of 0
-ridge.coef.official <- ridge.coef[ridge.coef != 0]
-ridge.coef.official
 
 sink(NULL)
 
-save(bestlam, ridge.model.full, ridge.coef, ridge.coef.official, ridge.mse,
+save(bestlam, ridge.model.full, ridge.coef, ridge.mse,
      file = "data/ridge-objects.RData")
