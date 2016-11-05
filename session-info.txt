@@ -1,6 +1,6 @@
-R version 3.2.3 (2015-12-10)
+R version 3.2.0 (2015-04-16)
 Platform: x86_64-apple-darwin13.4.0 (64-bit)
-Running under: OS X 10.12 (unknown)
+Running under: OS X 10.12.1 (unknown)
 
 locale:
 [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8

@@ -1,19 +1,20 @@
+
 # Analysis
 
 ```{r}
-load('data/lasso-objects.RData')
-load('data/pls-objects.RData')
+load('../data/lasso-objects.RData')
+load('../data/pls-objects.RData')
 ```
 
 ## Lasso Regression
 
-When we perform cross validation and compute the associated test error we find that the MSE is qite low at `r lasso.mse`. There are also quite a few coefficients that are zero. 
+When we perform cross validation and compute the associated test error we find that the MSE is quite low at $`r lasso.mse`$. There are also quite a few coefficients that are zero.
 
 ```{r}
 lasso.coef
 ```
 
-So all in all, we find that exactly 7 predictors are relevant in the regression. 
+So all in all, we find that exactly 7 predictors are relevant in the regression.
 
 ```{r}
 lasso.coef.official
@@ -28,4 +29,4 @@ Looking at the pls output summary, we see that the cross-validation error occurs
 summary(pls.fit.full)
 ```
 
-We see that the `r pls.best.mod.value` component PLS fit explains 86.63% of the variance. 
+We see that the `r pls.best.mod.value` component PLS fit explains 86.63% of the variance.

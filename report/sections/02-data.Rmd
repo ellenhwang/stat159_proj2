@@ -1,0 +1,41 @@
+
+# Data
+
+For this model, we use the Credit.csv dataset available from the Introduction to Statistical Learning website [(download)](http://www-bcf.usc.edu/~gareth/ISL). This dataset is analyzed in Chapter 6 of the ISL book.
+
+This dataset contains "Balance", representing average credit card debt across a group of people, and 10 explanatory variables, of which 6 are quantitative and 4 categorical. The quantitative variables are: Income, Credit Limit, Credit Rating, No. of Cards, Age and Years of Education. The categorical variables are: Gender, Student Status, Marital Status and Ethnicity.
+
+We include basic exploratory data analysis below:
+
+\begin{center}
+\includegraphics[width=180pt]{../images/histogram-credit-age}
+\includegraphics[width=180pt]{../images/histogram-credit-income}
+
+\ \newline
+
+\includegraphics[width=180pt]{../images/histogram-credit-edu}
+\includegraphics[width=180pt]{../images/histogram-credit-rating}
+
+\ \newline
+
+\includegraphics[width=180pt]{../images/histogram-credit-ncards}
+\includegraphics[width=180pt]{../images/histogram-credit-limit}
+
+\ \newpage
+
+\includegraphics[width=160pt]{../images/boxplot-balance-ethnicity}
+\includegraphics[width=160pt]{../images/boxplot-balance-gender}
+
+\ \newline
+
+\includegraphics[width=160pt]{../images/boxplot-balance-married}
+\includegraphics[width=160pt]{../images/boxplot-balance-student}
+
+\ \newline
+
+We also include correlation plots and scatterplots between quantitative variables:
+
+\includegraphics[width=220pt]{../images/corr-matrix}
+\includegraphics[width=220pt]{../images/scatterplots}
+
+\end{center}

@@ -1,5 +1,5 @@
 ##################################################
-# PLS Regression Analysis
+# PCR Regression Analysis
 ##################################################
 # libraries
 library(pls)

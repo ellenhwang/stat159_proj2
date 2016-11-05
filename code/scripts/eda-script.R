@@ -3,6 +3,7 @@
 ############################################################
 # libraries and output adjustments
 library(ggplot2)
+library(corrplot)
 options(warn = -1)
 
 # import data
@@ -52,6 +53,12 @@ hist_rating <- ggplot(credit, aes(x = Rating)) + geom_histogram(aes(y = ..densit
 hist_age <- ggplot(credit, aes(x = Age)) + geom_histogram(aes(y = ..density.., fill = ..density..), binwidth = 10) +
   geom_density() + ggtitle("Histogram of Age")
 
+hist_edu <- ggplot(credit, aes(x = Education)) + geom_histogram(aes(y = ..density.., fill = ..density..), binwidth = 1) +
+  geom_density() + ggtitle("Histogram of Education")
+
+hist_ncards <- ggplot(credit, aes(x = Cards)) + geom_histogram(aes(y = ..density.., fill = ..density..), binwidth = 1) +
+  geom_density() + ggtitle("Histogram of Number of Cards")
+
 # **************************************************
 # Boxplots
 # **************************************************
@@ -86,6 +93,14 @@ png('images/histogram-credit-age.png')
 hist_age
 dev.off()
 
+png('images/histogram-credit-edu.png')
+hist_edu
+dev.off()
+
+png('images/histogram-credit-ncards.png')
+hist_ncards
+dev.off()
+
 png('images/boxplot-balance-gender.png')
 box_gen
 dev.off()
@@ -100,4 +115,15 @@ dev.off()
 
 png('images/boxplot-balance-married.png')
 box_marr
+dev.off()
+
+# **************************************************
+# Correlation matrix and Scatterplots
+# **************************************************
+png("images/corr-matrix.png")
+corrplot(cor(credit_int), method='square')
+dev.off()
+
+png("images/scatterplots.png")
+pairs(credit_int, title="Scatter plots for all quantitative variable pairs")
 dev.off()

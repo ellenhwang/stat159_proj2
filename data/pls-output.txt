@@ -5,20 +5,20 @@ Number of components considered: 11
 
 VALIDATION: RMSEP
 Cross-validated using 10 random segments.
-       (Intercept)  1 comps  2 comps  3 comps  4 comps  5 comps  6 comps
-CV           1.016    1.018   0.4559   0.4363   0.4371   0.4377   0.4381
-adjCV        1.016    1.018   0.4550   0.4355   0.4363   0.4369   0.4371
-       7 comps  8 comps  9 comps  10 comps  11 comps
-CV      0.4383   0.4392   0.4388    0.4386    0.4386
-adjCV   0.4369   0.4379   0.4378    0.4376    0.4376
+       (Intercept)  1 comps  2 comps  3 comps  4 comps  5 comps  6 comps  7 comps  8 comps
+CV           1.016    1.018   0.4559   0.4363   0.4371   0.4377   0.4381   0.4383   0.4392
+adjCV        1.016    1.018   0.4550   0.4355   0.4363   0.4369   0.4371   0.4369   0.4379
+       9 comps  10 comps  11 comps
+CV      0.4388    0.4386    0.4386
+adjCV   0.4378    0.4376    0.4376
 
 TRAINING: % variance explained
-          1 comps  2 comps  3 comps  4 comps  5 comps  6 comps  7 comps
-X        99.87644    99.94    99.95    99.96    99.97    99.97    99.98
-Balance   0.06639    80.67    82.65    82.68    82.69    82.69    82.73
-         8 comps  9 comps  10 comps  11 comps
-X          99.98    99.99     99.99    100.00
-Balance    82.76    82.76     82.76     82.76
+          1 comps  2 comps  3 comps  4 comps  5 comps  6 comps  7 comps  8 comps  9 comps
+X        99.87644    99.94    99.95    99.96    99.97    99.97    99.98    99.98    99.99
+Balance   0.06639    80.67    82.65    82.68    82.69    82.69    82.73    82.76    82.76
+         10 comps  11 comps
+X           99.99    100.00
+Balance     82.76     82.76
 [1] 57.10044
 null device 
           1 

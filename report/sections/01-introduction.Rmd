@@ -1,3 +1,9 @@
 # Introduction
 
-In this project, we will be exploring 4 types of regression models that strengthen model interpretability and prediction accuracy. Two of the regression models, ridge regression and lasso regression, are shrinkage methods which constrains the coefficient estimates to shrink the coefficient estimates towards zero. This helps reduce coefficient estimates reduce their variance. The other two regression methods, principal components analysis and partial least squares, are dimension reduction methods. Dimension reduction methods essentially reduce the number of predictors under consideration to strengthen a model. We will be applying these methods to the Credit Dataset to create various models predicting a person's Balance from various independent variables. We will discuss my methods in R, my various results, and conclusions about the relationships and statistics I find. 
+In this project, we will be exploring 4 types of regression models that strengthen model interpretability and prediction accuracy.
+
+Two of the regression models, ridge regression and lasso regression, are shrinkage methods which constrains the coefficient estimates to shrink the coefficient estimates towards zero. This helps reduce coefficient estimates reduce their variance. They differ in the application of shrinkage - lasso implements parameter shrinkage and variable selection, whereas ridge merely modifies parameter weights.
+
+The other two regression methods, principal components analysis and partial least squares, are dimension reduction methods. Dimension reduction methods essentially reduce the number of predictors under consideration to strengthen a model. They differ in that PLS works to maximize inter-class variance in its low-dimensional model, whereas PCA maximizes the variance of features themselves.
+
+We will be applying these methods to the Credit Dataset to create various models predicting a person's Balance from various independent variables. We will discuss our methods in R, our various results, and conclusions about the relationships and statistics we find.

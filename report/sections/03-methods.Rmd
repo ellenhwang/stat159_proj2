@@ -1,9 +1,24 @@
+
 # Methods
+
+## Preprocessing
+
+We use one-hot encoding to dummy out categorical variables, and perform mean-centering and standardization of all variables, setting their means to 0 and standard deviations to 1 to give us comparable scales.
+
+We then split the data into a training set (75\% of total data) and a testing set (25\% of total data) for the purposes of tuning hyperparameters (such as $\lambda$ in lasso and ridge regressions).
 
 ## Lasso Regression
 
-With lasso regression, we first performed a preliminary model using `glmnet()` on the training dataset. For lasso, you set alpha to 1. Then, we cross validate the msso model on the train using the function `cv.glmnet()`. This helps pick out the best lambda to predict on the test set. Lastly, we fit the model to the full dataset and predict using the best lambda, helping us find the best coefficient values for the model. 
+With lasso regression, we first create a preliminary model using `glmnet()` on the training dataset, with $\alpha=1$ to represent the elasticnet mixing penalty used in lasso regression. We then cross validate our model on our training set using the function `cv.glmnet()`. During cross-validation, we perform a parameter search for lambda in the range $(10^{-20}, 10^{10})$, which was an expansion on the given grid from the project spec. Lastly, we fit a model to the full dataset and predict credit card balances using our best lambda found via CV.
 
 ## Partial Least Squares Regression
 
-With PLS regression, you use the  `plsr()` function modelling  *Balance* all other variables and setting validation to "CV". To find teh best number of components, you find the minimum of the validation PRESS features. This best component number is used to predict on the test dataset. Ultimately, you use perform `plsr()` on the full dataset using the best number of components. The summary of the model gives you 
+With PLS regression, we use the  `plsr()` function modeling *Balance* as a function of all other variables. To find the best number of components, we perform cross-validation and find the minimum of the validation PRESS features. Ultimately, we perform plsr regression on the full dataset using the best number of components found via cross-validation.
+
+## Ridge Regression
+
+As with lasso regression, we create an initial model using `glmnet()` on the training dataset, with $\alpha=0$ to represent the elasticnet mixing penalty used in ridge regression. We then cross validate our model on our training set using the function `cv.glmnet()`. Once again, we perform a parameter search for lambda using the extended grid $(10^{-20}, 10^{10})$. Finally, we fit a model to the full dataset and predict credit card balances using our best lambda found via CV.
+
+## Principal Components Regression
+
+Similar to with PLS regression, in PCR we `pcr()` function from the `pls` package to implement our regression. Again, we perform 10-fold cross-validation to determine the optimal number of components, and then make predictions of the full dataset based on that number of components.

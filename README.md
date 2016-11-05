@@ -54,7 +54,7 @@ project
 │   │   │   regression-functions.R
 │   │   │   statistic-functions.R
 │   │
-│   └───tests
+│   └───testsg
 │   │   │   test-regression.R
 │   │   │   test-statistic.R
 │

@@ -46,5 +46,5 @@ summ.pls.full
 
 sink(NULL)
 
-save(pls.best.mod.value, pls.pred, pls.mse, summ.pls.full,
+save(pls.best.mod.value, pls.pred, pls.mse, summ.pls.full, pls.fit.full,
      file = "data/pls-objects.RData")
