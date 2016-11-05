@@ -38,6 +38,7 @@ project
 │
 └───code
 │   │   README.md
+│   │   test-that.R
 │   │   
 │   └───scripts
 │   │   │   eda-script.R
@@ -51,9 +52,11 @@ project
 │   │
 │   └───functions
 │   │   │   regression-functions.R
+│   │   │   statistic-functions.R
 │   │
 │   └───tests
 │   │   │   test-regression.R
+│   │   │   test-statistic.R
 │
 └───images
 │   │   README.md

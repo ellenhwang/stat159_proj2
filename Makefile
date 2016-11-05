@@ -40,6 +40,9 @@ ridge:
 
 regressions: ols ridge lasso pcr pls
 
+tests:
+	Rscript $(code)/test-that.R
+
 session:
 	Rscript $(scripts)/$@-info-script.R
 
